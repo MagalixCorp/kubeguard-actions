@@ -8,7 +8,7 @@ The chart is  to serve as an example of how a team should build, package and dep
 
 A Helm Deployment Template is used to deploy the UI app.
 
-A Helm Service Template is used to create a gateway to the UI pods running in the deployment.
+A Helm Service  is used to create a gateway to the UI pods running in the deployment.
 
 An Ingress is used to rewrite the path of the service to offer it externally.
 
