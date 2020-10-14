@@ -1,4 +1,4 @@
-target
+target:
   helm: true
   path: helm
   paths:
