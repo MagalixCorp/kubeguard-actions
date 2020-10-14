@@ -1,6 +1,3 @@
 target:
-  helm: true
-  path: helm
-  paths:
-  - test/deployment.yaml
-  - test/service.yml
+  helmChartPath: helm
+  helmValuesPath: helm/values.yaml
