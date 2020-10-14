@@ -4,7 +4,7 @@ This Helm chart provides an example deployment of the Anaxes Hello World UI.
 
 The UI calls a simple REST API to retrieve a welcome message to display to the user.
 
-The chart is intended to serve as an example of how a team should build, package and deploy to Kubernetes clusters using Anaxes artifacts and best practices.
+The chart is inended to serve as an example of how a team should build, package and deploy to Kubernetes clusters using Anaxes artifacts and best practices.
 
 A Helm Deployment Template is used to deploy the UI app.
 
