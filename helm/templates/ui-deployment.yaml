@@ -1,0 +1,56 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "hello-world-ui.fullname" . }}
+  labels:
+    app: {{ template "hello-world-ui.fullname" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "hello-world-ui.fullname" . }}
+        release: {{ .Release.Name }}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.registryPullSecrets }}
+      containers:
+        - name: {{ .Chart.Name }}-ui
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: HELLO_BACKEND_URL
+              value: {{ .Values.api.url }}
+            - name: ACS_URL
+              value: {{ .Values.sso.acs }}
+            - name: APS_URL
+              value: {{ .Values.sso.aps }}
+            - name: IDENTITY_SERVICE_URL
+              value: {{ .Values.sso.identityService }}
+          ports:
+            - containerPort: {{ .Values.image.internalPort }}
+          livenessProbe:
+            httpGet:
+              scheme: HTTP
+              path: /
+              port: {{ .Values.image.internalPort }}
+            initialDelaySeconds: 15
+            periodSeconds: 5
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              scheme: HTTP
+              path: /
+              port: {{ .Values.image.internalPort }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 5
+          resources:
+            {{ toYaml .Values.resources | indent 12 }}
+            {{- if .Values.nodeSelector }}
+            nodeSelector:
+              {{ toYaml .Values.nodeSelector | indent 8 }}
+              {{- end }}
