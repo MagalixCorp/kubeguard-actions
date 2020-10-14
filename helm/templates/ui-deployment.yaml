@@ -19,7 +19,7 @@ spec:
         - name: {{ .Values.registryPullSecrets }}
       containers:
         - name: {{ .Chart.Name }}-ui
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.repository }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: HELLO_BACKEND_URL
