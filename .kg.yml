@@ -2,8 +2,9 @@ target:
   helmChartPath: helm
   helmValuesPath: helm/values.yaml
 
-# advisors:
-#   # only:
-#   # - 
-#   except:
-#     - container_image_tag_advisor
+advisors:
+  only:
+    - liveness_probe_advisor
+    - pod_security_policies_advisor
+    - readiness_probe_advisor
+
