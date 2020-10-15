@@ -32,22 +32,6 @@ spec:
               value: {{ .Values.sso.identityService }}
           ports:
             - containerPort: {{ .Values.image.internalPort }}
-          livenessProbe:
-            httpGet:
-              scheme: HTTP
-              path: /
-              port: {{ .Values.image.internalPort }}
-            initialDelaySeconds: 15
-            periodSeconds: 5
-            timeoutSeconds: 10
-          readinessProbe:
-            httpGet:
-              scheme: HTTP
-              path: /
-              port: {{ .Values.image.internalPort }}
-            initialDelaySeconds: 5
-            periodSeconds: 5
-            timeoutSeconds: 5
           resources:
             {{ toYaml .Values.resources | indent 12 }}
             {{- if .Values.nodeSelector }}
