@@ -4,5 +4,5 @@ target:
 
 
 advisors:
-  only:
+  except:
     - container_image_tag_advisor
