@@ -2,6 +2,7 @@ target:
   helmChartPath: helm
   helmValuesPath: helm/values.yaml
 
+
 advisors:
   only:
     - container_image_tag_advisor
