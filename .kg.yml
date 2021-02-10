@@ -3,10 +3,10 @@ target:
   helmValuesPath: helm/values.yaml
 
 
-# advisors:
-#   # only:
-#   # - pod_security_policies_advisor
-#   # - readiness_probe_advisor
+advisors:
+   only:
+   - pod_security_policies_advisor
+   - readiness_probe_advisor
 #   except:
 #   - pod_security_policies_advisor
 #   - readiness_probe_advisor
