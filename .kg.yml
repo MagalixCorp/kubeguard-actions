@@ -8,6 +8,7 @@ advisors:
    - pod_security_policies_advisor
    - readiness_probe_advisor 
    
+   
 #   except:
 #   - pod_security_policies_advisor
 #   - readiness_probe_advisor
