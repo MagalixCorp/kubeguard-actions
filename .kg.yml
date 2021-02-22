@@ -4,7 +4,7 @@ target:
 
 
 advisors:
-   except:
+   only:
    - pod_security_policies_advisor
    - readiness_probe_advisor 
    
