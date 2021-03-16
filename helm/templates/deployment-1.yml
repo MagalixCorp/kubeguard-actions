@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-1-a
+  labels:
+    app: deployment-1-a
+spec:
+  selector:
+    matchLabels:
+      app: deployment-1-a
+  template:
+    metadata:
+      labels:
+        app: deployment-1-a
+    spec:
+      containers:
+      - name: deployment-1-a-container
+        image: {{.Values.image.repository}}:{{.Values.image.tag}}
+        command: ["/bin/bash"]
+        args: ["-c", "sleep 1d"]

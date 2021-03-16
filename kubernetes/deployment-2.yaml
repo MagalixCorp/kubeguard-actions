@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-2
+    app: deployment-2
+spec:
+  selector:
+    matchLabels:
+      app: deployment-2
+  template:
+    metadata:
+      labels:
+        app: deployment-2
+    spec:
+      containers:
+      - name: deployment-2-container
+        image: ubuntu
+        command: ["/bin/bash"]
+        args: ["-c", "sleep 1d"]
