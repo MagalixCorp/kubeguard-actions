@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deployment-2
+  labels:
     app: deployment-2
 spec:
   selector:
