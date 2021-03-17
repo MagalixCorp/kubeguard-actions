@@ -18,3 +18,4 @@ spec:
         image: {{.Values.image.repository}}:{{.Values.image.tag}}
         command: ["/bin/bash"]
         args: ["-c", "sleep 1d"]
+
