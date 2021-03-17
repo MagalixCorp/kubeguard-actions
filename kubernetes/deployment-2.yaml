@@ -18,5 +18,5 @@ spec:
         image: ubuntu
         command: ["/bin/bash"]
         args: ["-c", "sleep 1d"]
-        securityContext:
-          readOnlyRootFilesystem: true
+        # securityContext:
+        #   readOnlyRootFilesystem: true
