@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,6 +19,7 @@ spec:
         image: ubuntu
         command: ["/bin/bash"]
         args: ["-c", "sleep 1d"]
+
 
 ---
 
@@ -41,4 +43,6 @@ spec:
         image: ubuntu
         command: ["/bin/bash"]
         args: ["-c", "sleep 1d"]
+        securityContext:
+          privileged: true
 
