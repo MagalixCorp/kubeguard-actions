@@ -1,4 +1,4 @@
-name: CI
+name: Magalix
 
 on:
   push:
@@ -6,16 +6,12 @@ on:
   pull_request:
     branches: [ master ]
 
-  workflow_dispatch:
-
 jobs:
-  test:
+  magalix:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Magalix
-        uses: ahsayde/test-action@main
-        with:
-          webhook: ${{ secrets.GUARD_WEBHOOK }}
-
-
+    - uses: actions/checkout@v2
+    - name: Magalix
+      uses: magalixcorp/magalix-action@dev
+      with:
+        webhook: ${{ secrets.GUARD_WEBHOOK }}
