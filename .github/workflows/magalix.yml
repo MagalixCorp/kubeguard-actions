@@ -16,6 +16,6 @@ jobs:
       - name: Magalix
         uses: magalixcorp/magalix-action@dev
         with:
-          webhook: ${{ secrets.MAGALIX_GUARD }}
+          webhook: "https://console.magalix.com/api/v1/kubeguard/4a22d5f3-e3cd-469d-aee0-683b4adc4f79/e8d11aa6-5182-4326-adf6-a02705d275e9"
 
 
