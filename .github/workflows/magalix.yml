@@ -1,4 +1,4 @@
-name: CI
+name: magalix
 
 on:
   push:
@@ -14,8 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Magalix
-        uses: ahsayde/test-action@main
+        uses: magalixcorp/magalix-action@dev
         with:
-          webhook: ${{ secrets.GUARD_WEBHOOK }}
+          webhook: ${{ secrets.MAGALIX_GUARD }}
 
 
